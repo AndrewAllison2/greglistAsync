@@ -54,7 +54,7 @@ export class House {
       return ''
     }
     return `
-    <button onclick="app.HousesController.drawditHouse('${this.id}')" class="btn btn-success">Edit Listing</button>
+    <button onclick="app.HousesController.drawEditForm('${this.id}')" class="btn btn-success">Edit Listing</button>
     `
   }
 
