@@ -18,7 +18,7 @@
 <body>
   <!-- SECTION -->
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2">
+    <nav class="navbar navbar-dark navbar-expand bg-dark text-light px-2 mb-2">
       <a class="navbar-brand" href="#">
         <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
           loading="lazy">
@@ -33,6 +33,7 @@
           <!-- NAVLINKS -->
           <a href="#/about" class="nav-link">About</a>
           <a href="#/cars" class="nav-link">Cars</a>
+          <a href="#/houses" class="nav-link">Houses</a>
         </div>
       </div>
       <div class="flex-grow-1 justify-content-end align-items-center d-flex" id="authstate"></div>
@@ -108,6 +109,89 @@
 
         </div>
       </div> -->
+    </section>
+
+    <!-- HOUSE CARD TEMPLATE -->
+
+
+
+    <button id="houseFormButton" class="btn btn-primary ms-3 mb-3" type="button" data-bs-toggle="collapse"
+      data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+      Create House Listing
+    </button>
+
+    <div class="collapse" id="collapseExample">
+      <div class="card card-body">
+        <form onsubmit="app.HousesController.createHouse(event)">
+
+          <div>
+            <label for="houseYear">Year Built</label>
+            <input type="text" id="houseYear" minlength="4" maxlength="30" required name="year">
+          </div>
+
+          <div>
+            <label for="housebedrooms">Number of Bedrooms</label>
+            <input type="number" id="houseBedrooms" required name="bedrooms">
+          </div>
+
+          <div>
+            <label for="housebathrooms">Number of Bathrooms</label>
+            <input type="number" id="houseBathrooms" required name="bathrooms">
+          </div>
+
+          <div>
+            <label for="houseDescription">Description</label>
+            <textarea id="houseDescription" name="description" rows="10" class="w-50">
+          </textarea>
+          </div>
+
+          <div>
+            <label for="houseLevels">Number of Levels</label>
+            <input type="number" id="houseLevels" required name="levels">
+          </div>
+
+          <div>
+            <label for="housePrice">Price</label>
+            <input type="number" id="housePrice" required name="price">
+          </div>
+
+          <div>
+            <label for="houseImg">Image URL</label>
+            <input type="url" id="houseImg" maxlength="300" required name="imgUrl">
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    </div>
+
+
+
+
+
+
+    <section id="houses-view">
+      <div id="homes-list">
+        <!-- <div class="col-10 m-auto">
+          <section class="row bg-light elevation-5 house-border">
+            <div class="col-4">
+              <div class="card" style="width: 18rem;">
+                <img src="${this.imgUrl}" class="card-img-top" id="house-picture" alt="House">
+              </div>
+            </div>
+            <div class="col-8 d-flex justify-content-end">
+              <div class="card-body">
+                <h5 class="card-title">${this.year} ${this.bedrooms} bed ${this.bathrooms} bath</h5>
+                <p class="card-text">${this.description}</p>
+              </div>
+            </div>
+          </section>
+        </div> -->
+      </div>
+
+
+
+
     </section>
 
 
