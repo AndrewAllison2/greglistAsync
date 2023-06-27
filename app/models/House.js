@@ -32,6 +32,7 @@ export class House {
                 <p class="card-text">${this.description}</p>
                 <div>
                 ${this.computeDeleteButton}
+                ${this.computeEditButton}
                 </div>
               </div>
             </div>
@@ -48,8 +49,61 @@ export class House {
     <button onclick="app.HousesController.deleteHouse('${this.id}')" class="btn btn-info">Delete Listing</button>
     `
   }
+  get computeEditButton() {
+    if (!AppState.account || AppState.account.id != this.creatorId) {
+      return ''
+    }
+    return `
+    <button onclick="app.HousesController.drawditHouse('${this.id}')" class="btn btn-success">Edit Listing</button>
+    `
+  }
 
-  get Edit
+  get EditForm() {
+    return /*html*/`
+    <div class="card card-body">
+        <form onsubmit="app.HousesController.editHouse(event, '${this.id}')">
+
+          <div>
+            <label for="houseYear">Year Built</label>
+            <input type="text" id="houseYear" minlength="4" maxlength="30" required name="year" value=${this.year}>
+          </div>
+
+          <div>
+            <label for="housebedrooms">Number of Bedrooms</label>
+            <input type="number" id="houseBedrooms" required name="bedrooms" value=${this.bedrooms}>
+          </div>
+
+          <div>
+            <label for="housebathrooms">Number of Bathrooms</label>
+            <input type="number" id="houseBathrooms" required name="bathrooms" value=${this.bathrooms}>
+          </div>
+
+          <div>
+            <label for="houseDescription">Description</label>
+            <textarea id="houseDescription" name="description" rows="10" class="w-50" value=${this.description}>
+          </textarea>
+          </div>
+
+          <div>
+            <label for="houseLevels">Number of Levels</label>
+            <input type="number" id="houseLevels" required name="levels" value=${this.levels}>
+          </div>
+
+          <div>
+            <label for="housePrice">Price</label>
+            <input type="number" id="housePrice" required name="price" value=${this.price}>
+          </div>
+
+          <div>
+            <label for="houseImg">Image URL</label>
+            <input type="url" id="houseImg" maxlength="300" required name="imgUrl">
+          </div>
+
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+    `
+  }
 }
 
 

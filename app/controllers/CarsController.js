@@ -20,12 +20,13 @@ function _showFormButton() {
   }
 
   const carFormButton = document.getElementById('carFormButton')
+  // @ts-ignore
   carFormButton.classList.remove('d-none')
 }
 
 
 export class CarsController {
-  constructor () {
+  constructor() {
     console.log('cars controller loaded');
     this.getCars()
     this.drawCarForm()
@@ -42,11 +43,13 @@ export class CarsController {
     const carForm = document.getElementById('car-form')
 
 
+    // @ts-ignore
     setHTML('car-form', foundCar.EditForm)
 
     // @ts-ignore
     bootstrap.Collapse.getOrCreateInstance('#carCollapse').show()
 
+    // @ts-ignore
     carForm.scrollIntoView()
   }
 
